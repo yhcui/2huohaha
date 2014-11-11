@@ -15,19 +15,27 @@
 	<!-- 
 	<import resource="scheduletask.xml"/>
 	 -->
+	<bean id="propertyConfigurer"
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:mysql.properties</value>
+            </list>
+        </property>
+    </bean>
 	
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName">
-			<value>com.mysql.jdbc.Driver</value>
+			<value>${mysql.driver}</value>
 		</property>
 		<property name="url">
-			<value>jdbc:mysql://127.0.0.1:3306/erhuohaha?autoReconnect=true&amp;zeroDateTimeBehavior=convertToNull&amp;useUnicode=true&amp;characterEncoding=UTF-8</value>
+			<value>${mysql.url}</value>
 		</property>
 		<property name="username">
-			<value>root</value>
+			<value>${mysql.username}</value>
 		</property>
 		<property name="password">
-			<value>root</value>
+			<value>${mysql.password}</value>
 		</property>
 	</bean>
 
